@@ -10,7 +10,7 @@ Converting url dictionary into matrix form (ones and zeros) [preferably list of 
 
 Given: dictionary (webcrawler output); list containing all webpages checked/all possible links)
 
-2. Outline
+Outline
 Dictionary: {'http://www.uu.nl': [list of links]}
 
 'http://www.uu.nl' is the row of the matrix
