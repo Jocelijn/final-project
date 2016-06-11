@@ -8,15 +8,9 @@
 For step 2.
 Converting url dictionary into matrix form (ones and zeros) [preferably list of lists].
 
-Given:
+Given: dictionary (webcrawler output); list containing all webpages checked/all possible links)
 
-Dictionary (webcrawler output); 
-
-[the following ordered links]:list containing all webpages checked/all possible links)
-
-
-
-
+2. Outline
 Dictionary: {'http://www.uu.nl': [list of links]}
 
 'http://www.uu.nl' is the row of the matrix
