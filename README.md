@@ -8,8 +8,8 @@
 For step 2.
 Converting url dictionary into matrix form (ones and zeros) [preferably list of lists].
 Given:
-Dictionary: webcrawler output
-[the following ordered links]: list containing all webpages checked/all possible links
+Dictionary (webcrawler output);
+[the following ordered links] (list containing all webpages checked/all possible links).
 
 
 Dictionary: {'http://www.uu.nl': [list of links]}
