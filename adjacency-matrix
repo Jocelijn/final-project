@@ -17,9 +17,6 @@ def row_of_adjacency_matrix(lijst,edges,vertex):
         if lijst[n] in edges[str(vertex)]:
             L.append(1)
             n=n+1
-        elif lijst[n]==str(vertex):
-            L.append(1)
-            n=n+1
         else:
             L.append(0)
             n=n+1
