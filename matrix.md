@@ -57,6 +57,7 @@ class matrix:
     """
     rows, columns, elements
     """
+    
     def __init__(self, rows=0, columns=0, elements=[]):
         self.rows=rows #number of rows
         self.columns=columns #number of columns
