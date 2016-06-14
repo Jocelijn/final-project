@@ -15,6 +15,7 @@ class URLParser(HTMLParser):
     def empty(self):
         self.urls = []
 
+
 # zoek in het www.uu.nl domein
 webpage = 'http://www.uu.nl'
 
@@ -31,7 +32,7 @@ parser.empty()
 parser.feed(str(page_content))
 
 # removes first element of the list as it is not a link
-#del parser.urls[0]
+del parser.urls[0]
 
 # makes sure that there aren't two elements with same value
 lst = []
@@ -40,20 +41,23 @@ lst = []
 # creates list of actual links and not references to the same page
 lst.remove('/')
 
+
 # Make a list of the 'uu.nl' websites with full url's
 y = 'uu.nl'
 fullurl_list = []
 for i in range(len(lst)):
+    if lst[i][-1] == '/':
+        lst[i] = lst[i][:-1] 
     if lst[i][0] == 'h':
         #print(lst[i])
         if y in lst[i]:
             fullurl_list.append(lst[i])
     else:
-        if y not in lst[i]:
-            fullurl_list.append(webpage + lst[i])
+        fullurl_list.append(webpage + lst[i])
+
         
 
-# create dictionary
+# Create dictionary
 dict = {}
 dict[webpage] = fullurl_list
 print(dict)
@@ -67,4 +71,6 @@ print(dict)
     3. It is possible to have the following things in the same list:
        "/organisatie" and "/organisatie/nieuws-en-agenda".
        # I(Marnix) don't think this is a problem
+    4. remove the statement that it should remove the reference to itself as
+       Jocelijn can then get rid of one if statement. Then remove backslash
    """
