@@ -31,7 +31,7 @@ parser.empty()
 parser.feed(str(page_content))
 
 # removes first element of the list as it is not a link
-del parser.urls[0]
+#del parser.urls[0]
 
 # makes sure that there aren't two elements with same value
 lst = []
@@ -40,26 +40,22 @@ lst = []
 # creates list of actual links and not references to the same page
 lst.remove('/')
 
-# remove links to facebook, linkedin, twitter, pinterest etc
-""" Create a code that removes elements if there is a ".com" in the string
-    """
-y = '.com'
-del_list = []
-for i in range(len(lst)):
-    if y in lst[i]:
-        del_list.append(i)
-
-lst = [i for j, i in enumerate(lst) if j not in del_list]
-
-# add 'http://www.uu.nl' to strings
+# Make a list of the 'uu.nl' websites with full url's
 y = 'uu.nl'
+fullurl_list = []
 for i in range(len(lst)):
-    if y not in lst[i]:
-        lst[i] = webpage + lst[i]
+    if lst[i][0] == 'h':
+        #print(lst[i])
+        if y in lst[i]:
+            fullurl_list.append(lst[i])
+    else:
+        if y not in lst[i]:
+            fullurl_list.append(webpage + lst[i])
+        
 
 # create dictionary
 dict = {}
-dict[webpage] = lst
+dict[webpage] = fullurl_list
 print(dict)
 
 
@@ -71,5 +67,4 @@ print(dict)
     3. It is possible to have the following things in the same list:
        "/organisatie" and "/organisatie/nieuws-en-agenda".
        # I(Marnix) don't think this is a problem
-    4. There are also links to facebook, instagram, linkedin etc.
    """
