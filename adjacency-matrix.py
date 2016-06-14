@@ -18,13 +18,10 @@ def adj_matrix(lijst,edges,vertex):
         n=n+1
     return L
 
-#total number of webpages.
-num=len(dct.keys())
-
 #creates the list of lists that my matrix programme can work with
 x=0
 matrix=[]
-while x < num:
+while x < len(dct.keys()):
     vertices=str(lijst[x])
     matrix.append(adj_matrix(lijst,dct,vertices))
     x=x+1
