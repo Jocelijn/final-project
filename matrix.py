@@ -69,30 +69,8 @@ class matrix:
             L2=[str(i) for i in L1]
             STR=str(' '.join(L2))
             Str.append(STR)
-            n=n+1
+            n+=1
         return str('\n'.join(Str))
-
-    def __add__(self,other):
-        if self.rows!=other.rows or self.columns!=other.columns:
-            return "impossible"
-        else:
-            c=matrix()
-            c.rows=self.rows
-            c.columns=self.columns
-            o=0
-            p=0
-            while o<self.rows:
-                lijst=[]
-                while p<self.columns:
-                #elements from both matrices that are in the same position
-                #sum of elements has same location in new matrix
-                    z=self.elements[o][p]+other.elements[o][p]
-                    lijst.append(z) #rows of new matrix
-                    p=p+1
-                c.elements.append(lijst) #list of lists, new matrix
-                p=0
-                o=o+1
-            return c
  
     def __mul__(self,other):#matrix times vector or matrix
         if isinstance(other,matrix):
@@ -112,7 +90,7 @@ class matrix:
             v=vector(len(self.elements[n]),self.elements[n])
             c.L.append(v.dot_product(other))
             #elements of new vector in terms of dot product
-            n=n+1
+            n+=1
         return c
 
     def mul_matrix(self,other):
