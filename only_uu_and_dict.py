@@ -1,6 +1,27 @@
+class matrix:
+    """
+    rows, columns, elements
+    """
+    def __init__(self, rows=0, columns=0, elements=[]):
+        self.rows=rows 
+        self.columns=columns 
+        self.elements=elements 
+
+    def __str__(self):
+        n=0
+        Str=[]
+        while n<self.rows:
+            L1=self.elements[n]
+            L2=[str(i) for i in L1]
+            STR=str(' '.join(L2))
+            Str.append(STR)
+            n=n+1
+        return str('\n'.join(Str))
+
 import urllib.request
 from html.parser import HTMLParser
 
+from pprint import pprint
 
 # deze parser objecten zijn in staat om uit een HTML bestand alle
 # links te herkennen van het type <a href="{link}">text</a>
@@ -73,7 +94,7 @@ webpage = 'http://www.uu.nl'
 crawler(webpage)
 for x in range(49):
     crawler(dict[webpage][x])
-#print(dict)
+#pprint(dict)
 
 """  Things to consider when making a recursive function to obtain all links:
     1. When a website has a link to an earlier looped through website,
@@ -101,7 +122,7 @@ def adj_matrix(lijst,edges,vertex):
             L.append(1)
         else:
             L.append(0)
-        n=n+1
+        n+=1
     return L
 
 #creates the list of lists that my matrix programme can work with
@@ -110,5 +131,5 @@ matrx=[]
 while x < len(dict.keys()):
     vertex=str(lijst[x])
     matrx.append(adj_matrix(lijst,dict,vertex))
-    x=x+1
-print(matrx)
+    x+=1
+print(matrix(len(matrx),len(matrx),matrx))
