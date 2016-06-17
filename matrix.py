@@ -78,9 +78,6 @@ class matrix:
         elif isinstance(other,vector):
             return self.mul_vector(other)
 
-    def __rmul__(self,other):#for vector times matrix
-        return self.__mul__(other)
-
     def mul_vector(self,other):
         c=vector()
         c.n=self.rows
@@ -112,7 +109,17 @@ class matrix:
             i+=1
         return c
 
+    def __pow__(self,other):
+        c=self
+        i=1
+        while i<int(other):
+            c=c.mul_matrix(self)
+            i+=1
+        return c
+
 self=matrix(2,2,[[1,2],[3,4]])
 other=matrix(2,2,[[5,6],[7,8]])
 
 print(self*other)
+print(self*self*self)
+print(self**3)
