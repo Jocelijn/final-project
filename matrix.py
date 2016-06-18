@@ -1,3 +1,5 @@
+from math import sqrt
+
 class vector:
     """
     vector of length n
@@ -33,7 +35,7 @@ class vector:
         c.n=len(c.L)
         c.L=[]
         for i in range(len(a.L)):
-            c.L.append(int(a.L[i])+int(b.L[i]))
+            c.L.append(a.L[i]+b.L[i])
         return c
 
     def dot_product(a,b):
@@ -45,12 +47,8 @@ class vector:
         return sum(c.L)
 
     def modulus(a):
-        c=vector()
-        c.n=len(c.L)
-        c.L=[]
-        for i in range(len(a.L)):
-            c.L.append(int(a.L[i])**2)
-        return sqrt(sum(c.L))
+        c= sqrt(a.dot_product(a))
+        return c
 
 class matrix:
     """
@@ -116,10 +114,3 @@ class matrix:
             c=c.mul_matrix(self)
             i+=1
         return c
-
-self=matrix(2,2,[[1,2],[3,4]])
-other=matrix(2,2,[[5,6],[7,8]])
-
-print(self*other)
-print(self*self*self)
-print(self**3)
