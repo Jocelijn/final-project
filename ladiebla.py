@@ -96,10 +96,12 @@ for a in dict.values():
         if i == 'http://www.uu.nl/homepagina':
             a.remove(i)
             a.insert(0,'http://www.uu.nl')
+            continue
     for i in a:
         if i == 'http://www.uu.nl/en/homepage':
             a.remove(i)
             a.insert(0,'http://www.uu.nl/en')
+            continue
     
 # continue for links
 for x in range(1):
