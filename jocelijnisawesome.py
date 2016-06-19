@@ -65,7 +65,7 @@ def crawler(webpage):
     # Make a list of the 'uu.nl' websites with full url's
     y = 'uu.nl'
     fullurl_list = []
-    for i in range(len(lst)):
+    for i in range(len(lst)):  
         if lst[i][-1] == '/':
             lst[i] = lst[i][:-1] 
         if lst[i][0] == 'h':
@@ -77,7 +77,13 @@ def crawler(webpage):
                 fullurl_list.append(new_webpage + lst[i])
             else:
                 fullurl_list.append(webpage + lst[i])
-        
+    a=0
+    while a in range(len(fullurl_list)):
+        if fullurl_list[a]=='http://www.uu.nl/en/homepage':
+            fullurl_list[a]='http://www.uu.nl/en'
+        if fullurl_list[a]=='http://www.uu.nl/homepagina':
+            fullurl_list[a]='http://www.uu.nl'
+        a+=1
 
     # Create dictionary
     dict[webpage] = fullurl_list
@@ -90,29 +96,16 @@ webpage = 'http://www.uu.nl'
 # get the first webpage in there
 crawler(webpage)
 
-# replace 'http://www.uu.nl/homepagina' and 'homepage' by a reference to itself
-for a in dict.values():
-    for i in a:
-        if i == 'http://www.uu.nl/homepagina':
-            a.remove(i)
-            a.insert(0,'http://www.uu.nl')
-            continue
-    for i in a:
-        if i == 'http://www.uu.nl/en/homepage':
-            a.remove(i)
-            a.insert(0,'http://www.uu.nl/en')
-            continue
-    
 # continue for links
-for x in range(1):
+for x in range(4):
     crawler(dict[webpage][x])
     
-#print(sorted(dict.values()))
+# replace 'http://www.uu.nl/homepagina' and 'homepage' by a reference to itself
 
 # make one list of all the values
 l = sorted(dict.values())
 lst = set([item for sublist in l for item in sublist])
-#print(lst)
+#pprint(lst)
 
 pprint(dict)
 
@@ -135,6 +128,8 @@ def search(values, searchFor):
        # I(Marnix) don't think this is a problem
     4. remove the statement that it should remove the reference to itself as
        Jocelijn can then get rid of one if statement. Then remove backslash
+
+       ***inlcuding issues in report. e.g. http://www.uu.nl/en/en***
    """
 # A sorted list of all the websites that were looped through
 lijst=sorted(dict.keys())
