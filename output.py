@@ -212,7 +212,22 @@ def intense_search(webpage,n):
     #pprint(dict)
     return dict
 
-intense_search(webpage,20)
+intense_search(webpage,4)
+
+l=sorted(dict.keys())
+print(len(l))
+x=0
+while x in range(len(l)):
+    webpage=dict[l[x]]
+    a=0
+    while a<3:#len(webpage)
+        if webpage[a] not in dict.keys():
+            crawler(webpage[a])
+        a+=1
+    x+=1
+pprint(dict)
+#dictionary has issues, namely prints /en/en and the like
+#also several uu.nlopleiding instead of uu.nl/opleidingen
 
 def search(values, searchFor):
     for k in values:
@@ -240,7 +255,7 @@ def search(values, searchFor):
 lijst=sorted(dict.keys())
 
 #the following creates a list of 1s and 0s for a particular page
-def adj_matrix(lijst,edges,vertex):
+"""def adj_matrix(lijst,edges,vertex):
     L=[]
     n=0
     while n<len(lijst):
@@ -265,3 +280,4 @@ theone=matrix(len(matrx[0]),len(matrx[0]),matrx)
 final = theone**10 * vector(len(matrx[0]),[1 for i in range(len(matrx[0]))])
 #print(theone**5)
 print(final)
+"""
